@@ -1,0 +1,40 @@
+body {
+    height: 100vh;
+    background: -webkit-linear-gradient(to bottom, #EFDBF0, #FBFCFD, #E1ECF5);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #EFDBF0, #FBFCFD, #E1ECF5);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    background: -webkit-linear-gradient(to right, #35262A, #605257, #C52E22);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #35262A, #605257, #C52E22);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1 {
+    font-family: Stardos Stencil;
+    font-size: 4em;
+    color: #36889D;
+}
+
+H2 {
+    font-family: Expletus Sans;
+    font-size: 4em;
+    color: #234E6E;
+}
+
+h3 {
+    font-family: Expletus Sans;
+    font-size: 4em;
+}
+
+p {
+    font-family: Expletus Sans;
+    font-size: 1.1em;
+}
+
+.hidden {
+    display: none;
+}
