@@ -1,6 +1,6 @@
 "use strict"
 
-let musicEvents = "http://soperfect.dk/kea/07-cms/wp00/wp-json/wp/v2/music_events?_embed";
+let musicEvents = "http://soperfect.dk/kea/07-cms/wp00/wp-json/wp/v2/music_events?_embed&order=desc";
 
 let page = 1;
 let lookingForData = false;
@@ -15,7 +15,7 @@ function fetchEvents() {
     let urlParams = new URLSearchParams(window.location.search);
     let catid = urlParams.get("category");
     if (catid) {
-        musicEvents = "http://soperfect.dk/kea/07-cms/wp00/wp-json/wp/v2/music_events?_embed&per_page=10&page=" + page + "&categories=" + catid;
+        musicEvents = "http://soperfect.dk/kea/07-cms/wp00/wp-json/wp/v2/music_events?_embed&order=desc&per_page=10&page=" + page + "&categories=" + catid;
 
     }
     fetch(musicEvents)
@@ -38,7 +38,6 @@ function showSingleEvent(event) {
     let year = event.acf.date.substring(0, 4);
     let month = event.acf.date.substring(4, 6);
     let day = event.acf.date.substring(6, 8);
-
     clone.querySelector(".title").textContent = event.title.rendered;
     /*clone.querySelector(".description").innerHTML = event.content.rendered;*/
     clone.querySelector(".price span").textContent = event.acf.price;
@@ -47,10 +46,10 @@ function showSingleEvent(event) {
     clone.querySelector(".time").textContent = event.acf.time;
     clone.querySelector(".venue").textContent = event.acf.venue;
     clone.querySelector(".image").src = event.acf.image.sizes.medium;
-    clone.querySelector(".more-details").href = "subpage.html?id=" + event.id;
+    clone.querySelector(".more-details").href = "music.html?id=" + event.id;
+
     musicContainer.appendChild(clone);
 }
-
 
 fetchEvents();
 setInterval(function () {
