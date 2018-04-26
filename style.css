@@ -7,34 +7,256 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     margin: 0;
-    background: -webkit-linear-gradient(to right, #35262A, #605257, #C52E22);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #35262A, #605257, #C52E22);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+/*//////////Mobile Animations/////////////////*/
+
+.slide-left {
+    animation: goLeft 0.8s forwards;
+}
+
+.slide-right {
+    animation: goright 0.8s ease-in;
+}
+
+@keyframes goLeft {
+    to {
+        transform: translateX(0vw);
+    }
+}
+
+@keyframes goright {
+    from {
+        transform: translateX(-100vw);
+    }
+    to {
+        transform: translateX(100vw);
+    }
+}
+
+
+/*//////////Mobile Navigation/////////////////*/
+
+li {
+    list-style-type: disc;
+    color: #234E6E;
+}
+
+input {
+    display: none;
+}
+
+label {
+    cursor: pointer;
+    font-size: 10vw;
+    margin-left: 20px;
+}
+
+nav {
+    max-height: 0;
+    overflow: hidden;
+    background-color: #FBFCFD;
+}
+
+input:checked~nav {
+    max-height: 45vh;
+    z-index: 1000;
+}
+
+nav a {
+    text-decoration: none;
+    color: #234E6E;
+    font-family: "Expletus Sans";
+    font-size: 1.4em;
+    font-weight: 900;
+    line-height: 35px;
+}
+
+nav a:hover {
+    color: #585C5D;
+    background-color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    padding: 2px;
+}
+
+
+/*//////////Mobile Buttons/////////////////*/
+
+#main-buttons {
+    text-align: center;
+}
+
+#main-buttons a {
+    text-decoration: none;
+    color: #FBFCFD;
+}
+
+#main-buttons button {
+    width: 35vw;
+    height: 35vw;
+    border-radius: 50%;
+    font-size: 2.2em;
+    border-style: none;
+    cursor: pointer;
+    margin: 2vw;
+    font-family: "Expletus Sans";
+}
+
+#contacts-button {
+    background-color: #DE74AB;
+}
+
+#concert-button {
+    background-color: #B4045F;
+}
+
+#movie-button {
+    background-color: #36889D;
+}
+
+.more-details,
+.movie-more-details {
+    width: 80px;
+    height: 80px;
+    font-size: 1.2em;
+    font-family: "Expletus Sans";
+    border-radius: 50%;
+}
+
+.sub-buttons {
+    text-align: center;
+}
+
+.sub-buttons a {
+    text-decoration: none;
+    font-size: 1.4em;
+    color: black;
+}
+
+.sub-buttons button {
+    width: 20vw;
+    height: 20vw;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.home-link {
+    background-color: #FBFCFD;
+}
+
+.contacts-link {
+    background-color: #DE74AB;
+}
+
+.concert-link {
+    background-color: #B4045F;
+}
+
+.movie-link {
+    background-color: #36889D;
 }
 
 h1 {
-    font-family: Stardos Stencil;
-    font-size: 4em;
+    font-family: "Stardos Stencil";
+    font-size: 1.8em;
     color: #36889D;
+    text-align: center;
 }
 
 H2 {
-    font-family: Expletus Sans;
-    font-size: 4em;
+    font-family: "Expletus Sans";
+    font-size: 1.4em;
     color: #234E6E;
 }
 
 h3 {
-    font-family: Expletus Sans;
-    font-size: 4em;
+    font-family: "Expletus Sans";
+    font-size: 1em;
 }
 
 p {
-    font-family: Expletus Sans;
+    font-family: "Expletus Sans";
     font-size: 1.1em;
+}
+
+main,
+.movies {
+    background: -webkit-linear-gradient(to right, #EFDBF0, #FBFCFD, #E1ECF5);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #EFDBF0, #FBFCFD, #E1ECF5);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-repeat: no-repeat;
+}
+
+.list,
+.movie-list {
+    margin: 0 auto;
+    text-align: center;
 }
 
 .hidden {
     display: none;
+}
+
+
+/*Breakpoint for Desktop*/
+
+@media all and (min-width:666px) {
+    .sub-body {
+        display: grid;
+    }
+    main,
+    .movies {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        background: -webkit-linear-gradient(to right, #EFDBF0, #FBFCFD, #E1ECF5);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #EFDBF0, #FBFCFD, #E1ECF5);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background-repeat: no-repeat;
+    }
+    /*Filtering Desktop*/
+    .navigation {
+        grid-column: 1;
+    }
+    nav li {}
+    nav {
+        margin-top: 65px;
+        max-height: 35vh;
+        background: transparent;
+    }
+    nav a {
+        color: #585C5D;
+        font-size: 1.5em;
+        margin-right: 45px;
+    }
+    nav a:hover {
+        padding: 20px;
+    }
+    label {
+        display: none;
+    }
+    h1 {
+        font-size: 2.8em;
+        grid-column: 1/5;
+        grid-row: 1;
+    }
+    /*//////////Desktop Buttons/////////////////*/
+    #main-buttons button {
+        width: 20vw;
+        height: 20vw;
+    }
+    #main-buttons a {
+        font-size: 3em;
+    }
+    .sub-buttons {
+        text-align: center;
+    }
+    .sub-buttons button {
+        width: 160px;
+        height: 160px;
+        font-size: 1.7em;
+        margin: 10px;
+    }
 }
