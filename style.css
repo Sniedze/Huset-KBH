@@ -49,8 +49,15 @@ input {
 
 label {
     cursor: pointer;
-    font-size: 10vw;
+    font-size: 1.5em;
     margin-left: 20px;
+    font-family: "Expletus Sans";
+    width: 30px;
+    text-align: center;
+}
+
+label h2 {
+    font-size: 1.0em
 }
 
 nav {
@@ -159,7 +166,7 @@ nav a:hover {
 
 h1 {
     font-family: "Stardos Stencil";
-    font-size: 1.8em;
+    font-size: 1.9em;
     color: #36889D;
     text-align: center;
 }

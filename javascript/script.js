@@ -35,11 +35,15 @@ function showMusicEvents(data) {
 
 function showSingleEvent(event) {
     let clone = template.cloneNode(true);
+    let year = event.acf.date.substring(0, 4);
+    let month = event.acf.date.substring(4, 6);
+    let day = event.acf.date.substring(6, 8);
+
     clone.querySelector(".title").textContent = event.title.rendered;
     /*clone.querySelector(".description").innerHTML = event.content.rendered;*/
     clone.querySelector(".price span").textContent = event.acf.price;
     clone.querySelector(".genre").textContent = event.acf.genre;
-    clone.querySelector(".date").textContent = event.acf.date;
+    clone.querySelector(".date").textContent = day + "." + month + "." + year + ".";
     clone.querySelector(".time").textContent = event.acf.time;
     clone.querySelector(".venue").textContent = event.acf.venue;
     clone.querySelector(".image").src = event.acf.image.sizes.medium;
@@ -50,7 +54,6 @@ function showSingleEvent(event) {
 
 fetchEvents();
 setInterval(function () {
-
     if (bottomVisible() && lookingForData === false) {
         console.log("We've reached rock bottom, fetching articles")
         page++;
@@ -62,7 +65,9 @@ function bottomVisible() {
     const scrollY = window.scrollY
     const visible = document.documentElement.clientHeight
     const pageHeight = document.documentElement.scrollHeight
-    const bottomOfPage = visible + scrollY >= pageHeight
+    const bottomOfPage = visible + scrollY + 20 >= pageHeight
+
+    console.log(bottomOfPage)
     return bottomOfPage || pageHeight < visible
 }
 
@@ -75,24 +80,22 @@ fetch("http://soperfect.dk/kea/07-cms/wp00/wp-json/wp/v2/categories?_embed&per_p
 function buildMusicMenu(data) {
     let parentElement = document.querySelector(".menu ul");
     data.forEach(item => {
-        console.log(item);
+        console.log(item.parent);
         let li = document.createElement("li");
         let a = document.createElement("a");
         let categ = item.id;
-
-
-        /* a.href = "index.html?category=" + item.id;*/
-
-        if (item.name == "Cult" || item.name == "Documentary" || item.name == "Drama" || item.name == "Fun" || item.name == "Horror" || item.name == "Movies" || item.name == "Uncategorized" || item.name == "Music") {
-            li.classList.add("hidden");
-        } else {
+        if (item.count !== 0 && item.parent === 7) {
             a.textContent = item.name;
             a.href = "music.html?category=" + item.id;
+        } else {
+            li.classList.add("hidden");
         }
         if (item.name == "Music Events") {
             a.textContent = "All Genres"
-
+            a.href = "music.html?category=" + item.id;
+            li.classList.remove("hidden")
         }
+
         li.appendChild(a);
         parentElement.appendChild(li);
 

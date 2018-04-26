@@ -76,16 +76,16 @@ function buildMovieMenu(movie) {
         let catego = ite.id;
 
 
-        /* a.href = "index.html?category=" + ite.id;*/
-
-        if (ite.name == "Dance" || ite.name == "Electronic" || ite.name == "Folk" || ite.name == "Funk" || ite.name == "Jazz" || ite.name == "Music Events" || ite.name == "Uncategorized" || ite.name == "Uncategorized " || ite.name == "Pop" || ite.name == "Rock" || ite.name == "Soul" || ite.name == "World") {
-            lis.classList.add("hidden");
-        } else {
+        if (ite.count !== 0 && ite.parent === 41) {
             anc.textContent = ite.name;
             anc.href = "movie.html?category=" + ite.id;
+        } else {
+            lis.classList.add("hidden");
         }
         if (ite.name == "Movies") {
             anc.textContent = "All Genres"
+            anc.href = "movie.html?category=" + ite.id;
+            lis.classList.remove("hidden")
         }
         lis.appendChild(anc);
         parentElem.appendChild(lis);
