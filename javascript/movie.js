@@ -2,7 +2,7 @@ let movieEvents = "http://soperfect.dk/kea/07-cms/wp00/wp-json/wp/v2/movies?_emb
 let page = 1;
 let lookingForData = false;
 const movieContainer = document.querySelector(".movies");
-const movieTemplate = document.querySelector(".movie-event").content;
+const movieTemplate = document.querySelector("#movie-event").content;
 
 
 function fetchEvents() {

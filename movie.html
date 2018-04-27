@@ -28,7 +28,7 @@
     <div class="movies">
         <h1>All Movie Events</h1>
         <div class="navigation">
-            <label for="toggle"><h2>Filter<br> by <br>Genres</h2></label>
+            <label for="toggle"><h2>Filter by <br>Genres</h2></label>
             <input type="checkbox" id="toggle">
 
             <nav class="movie-menu">
@@ -41,20 +41,21 @@
     </div>
 
 
-    <template class="movie-event">
+    <template id="movie-event">
         <article class="movie-list">
-            <h2 class="movie-title">event-title</h2>
+
             <img class= "movie-image" alt="event image">
-            <p class="movie-description"></p>
-            <h5 class="hidden" >Sold out</h5><br>
+            <h2 class="movie-title">event-title</h2>
             <h3 class="movie-genre"></h3>
             <h3 class="movie-date"></h3>
             <h3 class="movie-time"></h3>
+            <button ><a class="movie-more-details">More Details</a></button><br>
             <h3 class="movie-venue"></h3>
             <h3 class="movie-status"></h3>
             <h3 class="movie-price"><span>Price</span> kr.</h3>
+            <p class="movie-description"></p>
             <h3 class="movie-video"></h3>
-            <button class="movie-more-details">More Details</button><br>
+
 
         </article>
     </template>

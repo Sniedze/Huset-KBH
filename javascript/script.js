@@ -6,7 +6,7 @@ let page = 1;
 let lookingForData = false;
 const musicContainer = document.querySelector("main");
 
-const template = document.querySelector(".music-event").content;
+const template = document.querySelector("#music-event").content;
 
 
 
@@ -15,7 +15,7 @@ function fetchEvents() {
     let urlParams = new URLSearchParams(window.location.search);
     let catid = urlParams.get("category");
     if (catid) {
-        musicEvents = "http://soperfect.dk/kea/07-cms/wp00/wp-json/wp/v2/music_events?_embed&order=desc&per_page=10&page=" + page + "&categories=" + catid;
+        musicEvents = "http://soperfect.dk/kea/07-cms/wp00/wp-json/wp/v2/music_events?_embed&order=desc&per_page=5&page=" + page + "&categories=" + catid;
 
     }
     fetch(musicEvents)
@@ -39,14 +39,11 @@ function showSingleEvent(event) {
     let month = event.acf.date.substring(4, 6);
     let day = event.acf.date.substring(6, 8);
     clone.querySelector(".title").textContent = event.title.rendered;
-    /*clone.querySelector(".description").innerHTML = event.content.rendered;*/
-    clone.querySelector(".price span").textContent = event.acf.price;
     clone.querySelector(".genre").textContent = event.acf.genre;
     clone.querySelector(".date").textContent = day + "." + month + "." + year + ".";
     clone.querySelector(".time").textContent = event.acf.time;
-    clone.querySelector(".venue").textContent = event.acf.venue;
-    clone.querySelector(".image").src = event.acf.image.sizes.medium;
-    clone.querySelector(".more-details").href = "music.html?id=" + event.id;
+    clone.querySelector(".image").src = event.acf.image.sizes.medium_large;
+    clone.querySelector(".more-details").href = "subpage.html?id=" + event.id;
 
     musicContainer.appendChild(clone);
 }
@@ -68,7 +65,11 @@ function bottomVisible() {
 
     console.log(bottomOfPage)
     return bottomOfPage || pageHeight < visible
+
+
 }
+
+const footer = document.querySelector("footer");
 
 ///////////*Animations*////////////////////
 fetch("http://soperfect.dk/kea/07-cms/wp00/wp-json/wp/v2/categories?_embed&per_page=50")
