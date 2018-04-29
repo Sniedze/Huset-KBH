@@ -1,269 +1,381 @@
-body {
-    height: 100vh;
-    background: -webkit-linear-gradient(to bottom, #EFDBF0, #FBFCFD, #E1ECF5);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #EFDBF0, #FBFCFD, #E1ECF5);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    margin: 0;
-}
-
-
-/*//////////Mobile Animations/////////////////*/
-
-.slide-left {
-    animation: goLeft 0.8s forwards;
-}
-
-.slide-right {
-    animation: goright 0.8s ease-in;
-}
-
-@keyframes goLeft {
-    to {
-        transform: translateX(0vw);
+    body {
+        height: 100vh;
+        background-color: #3A494C;
+        background-image: url(images/pattern-grey.png);
+        background-size: cover;
+        margin: 0;
+        padding: 0;
     }
-}
 
-@keyframes goright {
-    from {
-        transform: translateX(-100vw);
+    header {
+        position: fixed;
+        z-index: 100;
+        background-color: #3A494C;
+        height: 120px;
+        width: 100vw;
     }
-    to {
-        transform: translateX(100vw);
+
+    #sub-header {
+        background-color: #7F6D74;
     }
-}
+    /*//////////Mobile Navigation/////////////////*/
 
-
-/*//////////Mobile Navigation/////////////////*/
-
-li {
-    list-style-type: disc;
-    color: #234E6E;
-}
-
-input {
-    display: none;
-}
-
-label {
-    cursor: pointer;
-    font-size: 1.5em;
-    margin-left: 20px;
-    font-family: "Expletus Sans";
-    width: 30px;
-    text-align: center;
-}
-
-label h2 {
-    font-size: 1.0em
-}
-
-nav {
-    max-height: 0;
-    overflow: hidden;
-    background-color: #FBFCFD;
-}
-
-input:checked~nav {
-    max-height: 45vh;
-    z-index: 1000;
-}
-
-nav a {
-    text-decoration: none;
-    color: #234E6E;
-    font-family: "Expletus Sans";
-    font-size: 1.4em;
-    font-weight: 900;
-    line-height: 35px;
-}
-
-nav a:hover {
-    color: #585C5D;
-    background-color: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    padding: 2px;
-}
-
-
-/*//////////Mobile Buttons/////////////////*/
-
-#main-buttons {
-    text-align: center;
-}
-
-#main-buttons a {
-    text-decoration: none;
-    color: #FBFCFD;
-}
-
-#main-buttons button {
-    width: 35vw;
-    height: 35vw;
-    border-radius: 50%;
-    font-size: 2.2em;
-    border-style: none;
-    cursor: pointer;
-    margin: 2vw;
-    font-family: "Expletus Sans";
-}
-
-#contacts-button {
-    background-color: #DE74AB;
-}
-
-#concert-button {
-    background-color: #B4045F;
-}
-
-#movie-button {
-    background-color: #36889D;
-}
-
-.more-details,
-.movie-more-details {
-    width: 80px;
-    height: 80px;
-    font-size: 1.2em;
-    font-family: "Expletus Sans";
-    border-radius: 50%;
-}
-
-.sub-buttons {
-    text-align: center;
-}
-
-.sub-buttons a {
-    text-decoration: none;
-    font-size: 1.4em;
-    color: black;
-}
-
-.sub-buttons button {
-    width: 20vw;
-    height: 20vw;
-    border-radius: 50%;
-    margin: 5px;
-}
-
-.home-link {
-    background-color: #FBFCFD;
-}
-
-.contacts-link {
-    background-color: #DE74AB;
-}
-
-.concert-link {
-    background-color: #B4045F;
-}
-
-.movie-link {
-    background-color: #36889D;
-}
-
-h1 {
-    font-family: "Stardos Stencil";
-    font-size: 1.9em;
-    color: #36889D;
-    text-align: center;
-}
-
-H2 {
-    font-family: "Expletus Sans";
-    font-size: 1.4em;
-    color: #234E6E;
-}
-
-h3 {
-    font-family: "Expletus Sans";
-    font-size: 1em;
-}
-
-p {
-    font-family: "Expletus Sans";
-    font-size: 1.1em;
-}
-
-main,
-.movies {
-    background: -webkit-linear-gradient(to right, #EFDBF0, #FBFCFD, #E1ECF5);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #EFDBF0, #FBFCFD, #E1ECF5);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background-repeat: no-repeat;
-}
-
-.list,
-.movie-list {
-    margin: 0 auto;
-    text-align: center;
-}
-
-.hidden {
-    display: none;
-}
-
-
-/*Breakpoint for Desktop*/
-
-@media all and (min-width:666px) {
-    .sub-body {
-        display: grid;
-    }
-    main,
-    .movies {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        background: -webkit-linear-gradient(to right, #EFDBF0, #FBFCFD, #E1ECF5);
+    li {
+        color: #CCC3C6;
+        background: -webkit-linear-gradient(to right, #7B405C, #3A494C, #CCC3C6);
         /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #EFDBF0, #FBFCFD, #E1ECF5);
+        background: linear-gradient(to right, #3A494C, #7B405C, #CCC3C6);
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        background-repeat: no-repeat;
+        width: 93%;
+        margin: 8px 0;
+        list-style: none;
     }
-    /*Filtering Desktop*/
-    .navigation {
-        grid-column: 1;
-    }
-    nav li {}
-    nav {
-        margin-top: 65px;
-        max-height: 35vh;
-        background: transparent;
-    }
-    nav a {
-        color: #585C5D;
-        font-size: 1.5em;
-        margin-right: 45px;
-    }
-    nav a:hover {
-        padding: 20px;
-    }
-    label {
+
+    input {
         display: none;
     }
-    h1 {
-        font-size: 2.8em;
-        grid-column: 1/5;
-        grid-row: 1;
+
+    label {
+        cursor: pointer;
+        font-size: 1.5em;
+        font-family: "Expletus Sans";
+        width: 30px;
+        text-align: center;
     }
-    /*//////////Desktop Buttons/////////////////*/
-    #main-buttons button {
-        width: 20vw;
-        height: 20vw;
+
+    label h2 {
+        font-size: 1.0em;
+        color: #CCC3C6;
     }
+
+    nav {
+        max-height: 0;
+        overflow: hidden;
+        background-color: #CCC3C6;
+        z-index: 1000;
+    }
+
+    input:checked~nav {
+        max-height: 45vh;
+        z-index: 1000;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #CCC3C6;
+        font-family: "Expletus Sans";
+        font-size: 1.4em;
+        font-weight: 900;
+        line-height: 35px;
+        margin-left: 15px;
+    }
+
+    nav a:hover {
+        color: #35262A;
+        text-decoration: none;
+        padding-left: 1px;
+    }
+    /*//////////Mobile Buttons/////////////////*/
+
+    #main-buttons {
+        text-align: center;
+        margin-top: 50px;
+    }
+
     #main-buttons a {
-        font-size: 3em;
+        text-decoration: none;
+        color: #CCC3C6;
+        vertical-align: middle;
     }
+
+    #main-buttons button {
+        width: 35vw;
+        height: 25vw;
+        font-size: 7.2vw;
+        cursor: pointer;
+        margin: 2vw;
+        font-family: "Expletus Sans";
+        background: -webkit-linear-gradient(to right, #7B405C, #3A494C, #7F6D74);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #7B405C, #3A494C);
+        border: none;
+    }
+
+    .more-details img,
+    .movie-more-details img {
+        width: 9vw;
+        position: absolute;
+        top: 73%;
+        right: 3%;
+    }
+
+    .genre,
+    #genre {
+        text-transform: capitalize;
+    }
+
     .sub-buttons {
         text-align: center;
     }
-    .sub-buttons button {
-        width: 160px;
-        height: 160px;
-        font-size: 1.7em;
-        margin: 10px;
+
+    .sub-buttons button a {
+        text-decoration: none;
+        font-size: 1.2em;
+        color: #CCC3C6;
+        font-weight: 700;
+        font-family: "Expletus Sans";
     }
-}
+
+    .sub-buttons button {
+        width: 20vw;
+        height: 15vw;
+        margin: 28px 5px;
+        background-color: #7B405C;
+        border: none;
+    }
+
+    .current-item a {
+        color: #7B405C;
+    }
+
+    .current-item {
+        background-color: #CCC3C6;
+    }
+
+    h1 {
+        font-family: "Expletus Sans";
+        font-size: 1.9em;
+        color: #35262A;
+        text-align: center;
+        margin: 0;
+        padding-top: 20px
+    }
+
+    H2 {
+        font-family: "Expletus Sans";
+        font-size: 1.4em;
+        color: #7B405C;
+        margin: 0;
+    }
+
+    h3 {
+        font-family: "Expletus Sans";
+        font-size: 1em;
+        color: #35262A;
+        margin: 0;
+    }
+
+    p {
+        font-family: "Expletus Sans";
+        font-size: 1.1em;
+        color: #35262A;
+    }
+
+    .image,
+    .movie-image {
+        width: 80vw;
+        filter: grayscale(100%);
+    }
+
+    .image:hover,
+    .movie-image:hover {
+        width: 80vw;
+        filter: grayscale(0%);
+    }
+
+    main,
+    .movies {
+        background-color: #7F6D74;
+        background-image: url(images/pattern-grey.png);
+        background-size: contain;
+        padding-top: 125px;
+    }
+
+    .list,
+    .movie-list {
+        text-align: center;
+        background-color: #CCC3C6;
+        width: 80vw;
+        height: 70vw;
+        margin: 25px auto;
+        position: relative;
+    }
+
+    .date,
+    .time,
+    .movie-date,
+    .movie-time {
+        display: inline-block;
+    }
+
+    .title {
+        margin: 0;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .some-image {
+        width: 50px;
+    }
+
+    #each-event {
+        background-color: #CCC3C6;
+        width: 70vw;
+        margin: 0 auto;
+    }
+
+    #event-image {
+        width: 70vw;
+    }
+
+    #each-event h1 {
+        font-family: "Expletus Sans";
+    }
+
+    #content {
+        display: grid;
+        grid-template-columns: 0vw 20vw 70vw;
+        padding-top: 145px;
+    }
+
+    #more-arrow img,
+    #movie-arrow img {
+        height: 100px;
+        margin: 15vh 25px 0 5px;
+    }
+    /*Breakpoint for Desktop*/
+
+    @media all and (min-width:666px) {
+        .sub-body {
+            display: grid;
+        }
+        main,
+        .movies {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(15vw, 25vw));
+            grid-gap: 25px;
+            background-color: #7F6D74;
+            background-image: url(images/pattern-grey.png);
+            padding: 200px 10vw;
+        }
+        header {
+            height: 180px;
+        }
+        .list,
+        .movie-list {
+            max-width: 25vw;
+            max-height: 22vw;
+            margin: 0;
+        }
+        .image,
+        .movie-image {
+            max-width: 25vw;
+        }
+        /*Filtering Desktop*/
+        .navigation {
+            grid-column: 1;
+            grid-row: 2/3;
+            border: solid 5px #3A494C;
+            min-height: 21.7vw;
+            max-width: 25vw;
+        }
+        nav {
+            max-height: 450px;
+            background: transparent;
+        }
+        nav a {
+            color: #CCC3C6;
+            font-size: 1.5vw;
+        }
+        nav a:hover {
+            padding-left: 15px;
+            color: #35262A;
+        }
+        label {
+            display: none;
+        }
+        h1 {
+            font-size: 2.8em;
+            grid-column: 1/4;
+            grid-row: 1;
+        }
+        li {
+            background: -webkit-linear-gradient(to right, #7B405C, #3A494C, #7F6D74);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #3A494C, #7B405C, #7F6D74);
+        }
+        /*//////////Desktop Buttons/////////////////*/
+        #main-buttons {
+            margin-top: 150px;
+            text-align: center;
+        }
+        #main-buttons button {
+            width: 20vw;
+            height: 15vw;
+        }
+        #main-buttons a {
+            font-size: 3.4vw;
+        }
+        .sub-buttons {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .sub-buttons button {
+            width: 190px;
+            height: 100px;
+            font-size: 1.7em;
+            margin: 10px;
+        }
+        .more-details img,
+        .movie-more-details img {
+            width: 3vw;
+            position: absolute;
+            top: 72%;
+            right: 3%;
+        }
+        /*////////// Animations/////////////////*/
+        .more-details img:hover,
+        .movie-more-details img:hover {
+            animation: goright 0.8s ease-in-out infinite;
+        }
+        @keyframes goright {
+            45% {
+                transform: translateX(5px);
+            }
+            100% {
+                transform: translateX(-5px);
+            }
+        }
+        #more-arrow img:hover,
+        #movie-arrow img:hover {
+            animation: goleft 0.9s ease-in-out infinite;
+        }
+        @keyframes goleft {
+            45% {
+                transform: translateX(-5px);
+            }
+            100% {
+                transform: translateX(5px);
+            }
+        }
+        #each-event {
+            background-color: #CCC3C6;
+            width: 60vw;
+        }
+        #content {
+            display: grid;
+            grid-template-columns: 0vw 5vw 80vw;
+            padding: 250px 10vw 0 10vw;
+        }
+        #more-arrow img,
+        #movie-arrow img {
+            height: 250px;
+            margin-top: 27vh;
+        }
+        #event-image {
+            width: 40vw;
+            margin: 20px 25% 0 17%;
+        }
+    }

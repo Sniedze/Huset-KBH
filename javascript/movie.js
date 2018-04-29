@@ -32,13 +32,11 @@ function showSingleMovieEvent(movie) {
     let year = movie.acf.date.substring(0, 4);
     let month = movie.acf.date.substring(4, 6);
     let day = movie.acf.date.substring(6, 8);
+
     movieClone.querySelector(".movie-title").textContent = movie.title.rendered;
-    /*movieClone.querySelector(".description").innerHTML = event.content.rendered;*/
-    movieClone.querySelector(".movie-price span").textContent = movie.acf.price;
     movieClone.querySelector(".movie-genre").textContent = movie.acf.genre;
     movieClone.querySelector(".movie-date").textContent = day + "." + month + "." + year + ".";
     movieClone.querySelector(".movie-time").textContent = movie.acf.time;
-    movieClone.querySelector(".movie-venue").textContent = movie.acf.venue;
     movieClone.querySelector(".movie-image").src = movie.acf.image.sizes.medium;
     movieClone.querySelector(".movie-more-details").href = "subpage.html?id=" + movie.id;
     movieContainer.appendChild(movieClone);
