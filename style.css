@@ -24,9 +24,9 @@
         color: #CCC3C6;
         background: -webkit-linear-gradient(to right, #7B405C, #3A494C, #CCC3C6);
         /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #3A494C, #7B405C, #CCC3C6);
+        background: linear-gradient(to right, #3A494C, #CC7192, #CCC3C6);
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        width: 93%;
+        width: 83%;
         margin: 8px 0;
         list-style: none;
     }
@@ -97,7 +97,7 @@
         font-family: "Expletus Sans";
         background: -webkit-linear-gradient(to right, #7B405C, #3A494C, #7F6D74);
         /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #7B405C, #3A494C);
+        background: linear-gradient(to right, #CC7192, #4C2839, #3A494C);
         border: none;
     }
 
@@ -130,7 +130,10 @@
         width: 20vw;
         height: 15vw;
         margin: 28px 5px;
-        background-color: #7B405C;
+        background-color: background: -webkit-linear-gradient(to right, #7B405C, #3A494C, #7F6D74);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #CC7192, #7B405C, #4C2839, #3A494C);
+        ;
         border: none;
     }
 
@@ -254,7 +257,7 @@
         main,
         .movies {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(15vw, 25vw));
+            grid-template-columns: 1fr 1fr 1fr;
             grid-gap: 25px;
             background-color: #7F6D74;
             background-image: url(images/pattern-grey.png);
@@ -304,7 +307,7 @@
         li {
             background: -webkit-linear-gradient(to right, #7B405C, #3A494C, #7F6D74);
             /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #3A494C, #7B405C, #7F6D74);
+            background: linear-gradient(to right, #3A494C, #CC7192, #7F6D74);
         }
         /*//////////Desktop Buttons/////////////////*/
         #main-buttons {
