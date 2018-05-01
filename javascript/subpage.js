@@ -22,13 +22,13 @@ function showOneEvent(ev) {
     let arrowImage = document.createElement("img");
     let a = document.createElement("a");
     a.href = "music.html";
-    arrowImage.src = "images/arrow-grey.png";
+    arrowImage.src = "images/arrow-red.png";
     document.querySelector("#event-image").src = ev.acf.image.sizes.medium_large;
     document.querySelector("#each-event  h1").textContent = ev.title.rendered;
     document.querySelector("#genre").textContent = ev.acf.genre;
     document.querySelector("#date").textContent = day + "." + month + "." + year + ".";
     document.querySelector("#time").textContent = ev.acf.time;
-    document.querySelector("#each-event  p").textContent = ev.content.rendered;
+    document.querySelector("#each-event  p").innerHTML = ev.content.rendered;
     document.querySelector("#video").textContent = ev.acf.video_embed;
     document.querySelector("#each-event #price span").textContent = "Price: " + ev.acf.price + " DKK";
     document.querySelector("#venue").textContent = "Venue: " + ev.acf.venue;
@@ -53,7 +53,7 @@ function showMovieEvent(eve) {
     let arrowImage = document.createElement("img");
     let anc = document.createElement("a");
     anc.href = "movie.html";
-    arrowImage.src = "images/arrow-grey.png";
+    arrowImage.src = "images/arrow-red.png";
     document.querySelector("#event-image").src = eve.acf.image.sizes.medium_large;
     document.querySelector("#each-event  h1").textContent = eve.title.rendered;
     document.querySelector("#genre").textContent = eve.acf.genre;

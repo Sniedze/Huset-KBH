@@ -106,9 +106,12 @@ function buildMusicMenu(data) {
         if (item.name == "All Music Events") {
             a.textContent = "All Genres"
             a.href = "music.html?category=" + item.id;
+
             li.classList.remove("hidden")
         }
-
+        if (item.name == "Pop") {
+            li.classList.add("hidden");
+        }
         li.appendChild(a);
         parentElement.appendChild(li);
 
