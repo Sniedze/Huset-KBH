@@ -1,6 +1,7 @@
 let urlParams = new URLSearchParams(window.location.search);
 
 let id = urlParams.get("id");
+
 console.log("i want to get article: " + id);
 
 
@@ -58,7 +59,7 @@ function showMovieEvent(eve) {
     document.querySelector("#genre").textContent = eve.acf.genre;
     document.querySelector("#date").textContent = day + "." + month + "." + year + ".";
     document.querySelector("#time").textContent = eve.acf.time;
-    document.querySelector("#each-event  p").textContent = eve.content.rendered;
+    document.querySelector("#each-event  p").innerHTML = eve.content.rendered;
     document.querySelector("#video").textContent = eve.acf.video_embed;
     document.querySelector("#each-event #price span").textContent = "Price " + eve.acf.price + " DKK";
 

@@ -1,16 +1,22 @@
-let movieEvents = "http://soperfect.dk/kea/07-cms/wp00/wp-json/wp/v2/movies?_embed&order=asc";
+"use strict"
 let page = 1;
 let lookingForData = false;
 const movieContainer = document.querySelector(".movies");
 const movieTemplate = document.querySelector("#movie-event").content;
+let urlParams = new URLSearchParams(window.location.search);
+let name = urlParams.get("name");
+if (name) {
+    document.querySelector("#movie-heading").textContent = name;
 
+}
 
 function fetchEvents() {
     lookingForData = true;
-    let urlParams = new URLSearchParams(window.location.search);
+
     let catid = urlParams.get("category");
+    let movieEvents = "http://soperfect.dk/kea/07-cms/wp00/wp-json/wp/v2/movies?_embed&order=asc&per_page=4&page=" + page;
     if (catid) {
-        movieEvents = "http://soperfect.dk/kea/07-cms/wp00/wp-json/wp/v2/movies?_embed&order=asc&per_page=10&page=" + page + "&categories=" + catid;
+        movieEvents = "http://soperfect.dk/kea/07-cms/wp00/wp-json/wp/v2/movies?_embed&order=asc&per_page=4&page=" + page + "&categories=" + catid;
     }
 
     fetch(movieEvents)
@@ -19,8 +25,6 @@ function fetchEvents() {
 
 }
 
-
-
 function showMovieEvents(movie) {
     console.log(movie)
     lookingForData = false;
@@ -28,11 +32,16 @@ function showMovieEvents(movie) {
 }
 
 function showSingleMovieEvent(movie) {
+    console.log(name, "name")
     let movieClone = movieTemplate.cloneNode(true);
     let year = movie.acf.date.substring(0, 4);
     let month = movie.acf.date.substring(4, 6);
     let day = movie.acf.date.substring(6, 8);
+    movieClone.querySelector(".movie-list").addEventListener("click", listClicked);
 
+    function listClicked() {
+        window.location.href = "subpage.html?id=" + movie.id;
+    }
     movieClone.querySelector(".movie-title").textContent = movie.title.rendered;
     movieClone.querySelector(".movie-genre").textContent = movie.acf.genre;
     movieClone.querySelector(".movie-date").textContent = day + "." + month + "." + year + ".";
@@ -43,6 +52,7 @@ function showSingleMovieEvent(movie) {
 }
 
 fetchEvents();
+/*
 setInterval(function () {
 
     if (bottomVisible() && lookingForData === false) {
@@ -51,6 +61,17 @@ setInterval(function () {
         fetchEvents();
     }
 }, 1000)
+*/
+setInterval(function () {
+
+    if (bottomVisible() && lookingForData === false) {
+        console.log("We've reached rock bottom, fetching articles")
+        page++;
+        document.querySelector("footer img").addEventListener("click", fetchEvents);
+        document.querySelector("footer img").classList.remove("hidden");
+    }
+})
+
 
 function bottomVisible() {
     const scrollY = window.scrollY
@@ -79,7 +100,7 @@ function buildMovieMenu(movie) {
 
         if (ite.count !== 0 && ite.parent === 41) {
             anc.textContent = ite.name;
-            anc.href = "movie.html?category=" + ite.id;
+            anc.href = "movie.html?category=" + ite.id + '&name=' + ite.name;;
         } else {
             lis.classList.add("hidden");
         }

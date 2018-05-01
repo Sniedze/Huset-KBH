@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="sub-body">
+<body class="body">
     <header>
 
         <div class=sub-buttons>
@@ -22,23 +22,23 @@
             <button class="current-item"><a href="movie.html">Movies</a></button>
         </div>
     </header>
+    <h1 id="movie-heading">Movies</h1>
+    <div class="navigation">
+        <label for="toggle"><h2>Filter by <br>Genres</h2></label>
+        <input type="checkbox" id="toggle">
 
+        <nav class="movie-menu">
+            <ul>
 
-
-    <div class="movies">
-        <h1>Movies</h1>
-        <div class="navigation">
-            <label for="toggle"><h2>Filter by <br>Genres</h2></label>
-            <input type="checkbox" id="toggle">
-
-            <nav class="movie-menu">
-                <ul>
-
-                </ul>
-            </nav>
-        </div>
-
+            </ul>
+        </nav>
     </div>
+
+
+
+<div class="movies">
+
+</div>
 
 
     <template id="movie-event">
@@ -54,9 +54,12 @@
         </article>
     </template>
 
-
+    <footer>
+        <img class="footer-image hidden" src="images/arrow-red-down.png">
+    </footer>
     <script src="javascript/movie.js"></script>
 
 </body>
+
 
 </html>
