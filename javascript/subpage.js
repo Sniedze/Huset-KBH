@@ -60,7 +60,7 @@ function showMovieEvent(eve) {
     document.querySelector("#date").textContent = day + "." + month + "." + year + ".";
     document.querySelector("#time").textContent = eve.acf.time;
     document.querySelector("#each-event  p").innerHTML = eve.content.rendered;
-    document.querySelector("#video").textContent = eve.acf.video_embed;
+    document.querySelector("#video").innerHTML = eve.acf.video_embed;
     document.querySelector("#each-event #price span").textContent = "Price " + eve.acf.price + " DKK";
 
 

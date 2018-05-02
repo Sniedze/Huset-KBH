@@ -1,5 +1,7 @@
 "use strict"
 let page = 1;
+let moviePages = 0;
+const footerButton = document.querySelector(".footer-image");
 let lookingForData = false;
 const movieContainer = document.querySelector(".movies");
 const movieTemplate = document.querySelector("#movie-event").content;
@@ -14,25 +16,41 @@ function fetchEvents() {
     lookingForData = true;
 
     let catid = urlParams.get("category");
-    let movieEvents = "http://soperfect.dk/kea/07-cms/wp00/wp-json/wp/v2/movies?_embed&order=asc&per_page=4&page=" + page;
+    let movieEvents = "http://soperfect.dk/kea/07-cms/wp00/wp-json/wp/v2/movies?_embed&order=asc&per_page=2&page=" + page;
     if (catid) {
-        movieEvents = "http://soperfect.dk/kea/07-cms/wp00/wp-json/wp/v2/movies?_embed&order=asc&per_page=4&page=" + page + "&categories=" + catid;
+        movieEvents = "http://soperfect.dk/kea/07-cms/wp00/wp-json/wp/v2/movies?_embed&order=asc&per_page=2&page=" + page + "&categories=" + catid;
     }
 
     fetch(movieEvents)
-        .then(ev => ev.json())
+        .then(e => {
+            moviePages = e.headers.get("X-WP-TotalPages")
+            return e.json()
+        })
         .then(showMovieEvents);
 
 }
 
 function showMovieEvents(movie) {
-    console.log(movie)
-    lookingForData = false;
     movie.forEach(showSingleMovieEvent);
+    if (page < moviePages) {
+        footerButton.classList.remove("hidden");
+
+        footerButton.addEventListener("click", function () {
+            page++;
+
+            if (page <= moviePages) {
+                fetchEvents();
+            } else {
+                footerButton.classList.add("hidden");
+            }
+        })
+
+    }
+    console.log(page, moviePages)
 }
 
 function showSingleMovieEvent(movie) {
-    console.log(name, "name")
+
     let movieClone = movieTemplate.cloneNode(true);
     let year = movie.acf.date.substring(0, 4);
     let month = movie.acf.date.substring(4, 6);
@@ -104,11 +122,7 @@ function buildMovieMenu(movie) {
         } else {
             lis.classList.add("hidden");
         }
-        if (ite.name == "Movies") {
-            anc.textContent = "All Genres"
-            anc.href = "movie.html?category=" + ite.id;
-            lis.classList.remove("hidden")
-        }
+        document.querySelector(".movie-menu a").href = "movie.html";
         lis.appendChild(anc);
         parentElem.appendChild(lis);
 
