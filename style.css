@@ -2,6 +2,7 @@ body {
     background-color: #EDFBFF;
     background-image: url(images/pattern-light-green.png);
     background-size: cover;
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
 }
@@ -26,7 +27,7 @@ footer img {
 li {
     color: #FCFEFD;
     background-color: #B0667C;
-    width: 30vw;
+    width: 42vw;
     margin: 10px auto;
     list-style: none;
 }
@@ -49,11 +50,10 @@ label {
 
 label h2 {
     font-size: 0.9em;
-    color: #7B405C;
-    background-color: #FCFEFD;
-    opacity: 0.8;
+    color: #FCFEFD;
+    background-color: #3C7689;
     width: 30vw;
-    margin: 20px auto 0 auto;
+    margin: 20px 25px 0;
 }
 
 label h2:hover {
@@ -65,7 +65,7 @@ nav {
     overflow: hidden;
     background-color: #FCFEFD;
     z-index: 1000;
-    margin: 15px auto;
+    margin: 5px auto;
     width: 90vw;
 }
 
@@ -78,7 +78,7 @@ nav a {
     text-decoration: none;
     color: #FCFEFD;
     font-family: "Expletus Sans";
-    font-size: 1.4em;
+    font-size: 5.4vw;
     font-weight: 900;
     line-height: 35px;
     margin-left: 15px;
@@ -100,7 +100,7 @@ nav a:hover {
 
 #main-buttons a {
     text-decoration: none;
-    color: #FCFEFD;
+    color: #2D393D;
     vertical-align: middle;
 }
 
@@ -130,38 +130,38 @@ nav a:hover {
 
 .sub-buttons {
     width: 97vw;
-    margin: 0 auto;
-    text-align: center
+    margin: 5px auto;
+    text-align: center;
 }
 
 .sub-buttons button a {
     text-decoration: none;
-    font-size: 1.5em;
-    color: #FCFEFD;
+    font-size: 1.7em;
+    color: #2D393D;
     font-weight: 700;
     font-family: "Expletus Sans";
 }
 
 .sub-buttons button {
     width: 20vw;
-    height: 15vw;
+    height: 6vh;
     margin: 8px 5px;
     background-color: #B0667C;
     border: none;
 }
 
-.current-item a {
-    color: #B0667C;
+button.current-item a {
+    color: #3C7689;
 }
 
-.current-item {
+button.current-item {
     background-color: #FCFEFD;
 }
 
 h1 {
     font-family: "Expletus Sans";
-    font-size: 1.9em;
-    color: #2D393D;
+    font-size: 2.5em;
+    color: #3C7689;
     text-align: center;
     margin: 0;
     padding-top: 100px
@@ -182,7 +182,7 @@ h3 {
 }
 
 p {
-    font-family: "Expletus Sans";
+    font-family: "Source Sans Pro";
     font-size: 1.1em;
     color: #2D393D;
 }
@@ -205,8 +205,11 @@ p {
     background-color: #FCFEFD;
     width: 80vw;
     height: 70vw;
-    margin: 25px auto;
+    margin: 2px auto 25px;
     position: relative;
+    cursor: pointer;
+    border-left: solid 4vw #2D393D;
+    border-bottom: solid 6vw #3C7689;
 }
 
 .date,
@@ -232,6 +235,10 @@ p {
     background-color: #FCFEFD;
     width: 70vw;
     margin: 0 auto;
+    padding: 10px;
+    border-left: solid 6px #2D393D;
+    border-top: solid 10px #3C7689;
+    border-right: solid 6px #3C7689;
 }
 
 #event-image {
@@ -265,7 +272,7 @@ p {
         background-color: #EDFBFF;
         background-image: url(images/pattern-light-green.png);
         background-size: cover;
-        padding: 170px 3vw;
+        padding: 170px 10vw 0 10vw;
     }
     main,
     .movies {
@@ -276,44 +283,44 @@ p {
         grid-column: 2/3;
     }
     header {
-        height: 150px;
+        margin-top: 30px;
+        height: 110px;
+        padding: 10px 10vw 0;
     }
     footer {
         margin: 15px auto;
+        grid-column: 2/3;
+        grid-row: 3;
     }
     footer img {
         width: 200px;
-        grid-column: 2/3;
-        margin-left: 45vw;
+        margin-left: 0;
     }
     .list,
     .movie-list {
-        max-width: 25vw;
-        max-height: 22vw;
-        margin: 0;
-        cursor: pointer;
-        border-top: solid 5vw #2D393D;
+        max-width: 20vw;
+        max-height: 19vw;
+        margin: 0 auto;
+        border-bottom: solid 5vw #3C7689;
         border-left: solid 5vw #2D393D;
+        background-color: #FCFEFD;
+        border-top: 0;
     }
     h3 {
         font-family: "Expletus Sans";
         font-size: 1.2vw;
-        color: #35262A;
+        color: #2D393D;
         margin: 0;
-    }
-    h1 {
-        padding-top: 0;
     }
     h2 {
         font-size: 1.5vw;
     }
     p {
         font-size: 1.3em;
-        color: #35262A;
     }
     .image,
     .movie-image {
-        max-width: 25vw;
+        max-width: 20vw;
     }
     /*Filtering Desktop*/
     .navigation {
@@ -338,13 +345,12 @@ p {
         margin-top: 0;
     }
     nav a {
-        color: #35262A;
+        color: #2D393D;
         font-size: 1.7vw;
         padding-left: 1px;
     }
     nav a:hover {
         padding-left: 15px;
-        color: #35262A;
     }
     label {
         display: none;
@@ -352,9 +358,11 @@ p {
         padding: 0;
     }
     h1 {
-        font-size: 4em;
+        font-size: 4vw;
         grid-row: 1;
-        grid-column: 1/3;
+        grid-column: 2;
+        margin-bottom: 5px;
+        padding-top: 0;
     }
     /*//////////Desktop Buttons/////////////////*/
     #main-buttons {
@@ -368,14 +376,14 @@ p {
         font-size: 3.4vw;
     }
     .sub-buttons {
-        text-align: center;
-        margin: 15px 0;
+        text-align-last: left;
     }
     .sub-buttons button {
         width: 190px;
-        height: 100px;
+        height: 70px;
         font-size: 1.7em;
         margin: 10px;
+        text-align: center;
     }
     .more-details img,
     .movie-more-details img {
@@ -413,7 +421,7 @@ p {
         background-color: #FCFEFD;
         width: 50vw;
         padding: 50px;
-        border-top: solid 4vw #2D393D;
+        border-top: solid 4vw #3C7689;
         border-left: solid 2vw #2D393D;
     }
     #content {

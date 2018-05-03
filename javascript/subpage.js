@@ -53,7 +53,7 @@ function showMovieEvent(eve) {
     let arrowImage = document.createElement("img");
     let anc = document.createElement("a");
     anc.href = "movie.html";
-    arrowImage.src = "images/arrow-red.png";
+    arrowImage.src = "images/arrow-green-left.png";
     document.querySelector("#event-image").src = eve.acf.image.sizes.medium_large;
     document.querySelector("#each-event  h1").textContent = eve.title.rendered;
     document.querySelector("#genre").textContent = eve.acf.genre;

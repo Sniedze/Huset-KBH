@@ -30,23 +30,24 @@ function fetchEvents() {
 
 }
 
+/*Event Listener for adding more posts on click.*/
+
+footerButton.addEventListener("click", function () {
+    page++;
+
+    if (page <= moviePages) {
+        fetchEvents();
+    } else {
+        footerButton.classList.add("hidden");
+    }
+})
+
 function showMovieEvents(movie) {
     movie.forEach(showSingleMovieEvent);
     if (page < moviePages) {
         footerButton.classList.remove("hidden");
 
-        footerButton.addEventListener("click", function () {
-            page++;
-
-            if (page <= moviePages) {
-                fetchEvents();
-            } else {
-                footerButton.classList.add("hidden");
-            }
-        })
-
     }
-    console.log(page, moviePages)
 }
 
 function showSingleMovieEvent(movie) {
@@ -70,34 +71,6 @@ function showSingleMovieEvent(movie) {
 }
 
 fetchEvents();
-/*
-setInterval(function () {
-
-    if (bottomVisible() && lookingForData === false) {
-        console.log("We've reached rock bottom, fetching articles")
-        page++;
-        fetchEvents();
-    }
-}, 1000)
-*/
-setInterval(function () {
-
-    if (bottomVisible() && lookingForData === false) {
-        console.log("We've reached rock bottom, fetching articles")
-        page++;
-        document.querySelector("footer img").addEventListener("click", fetchEvents);
-        document.querySelector("footer img").classList.remove("hidden");
-    }
-})
-
-
-function bottomVisible() {
-    const scrollY = window.scrollY
-    const visible = document.documentElement.clientHeight
-    const pageHeight = document.documentElement.scrollHeight
-    const bottomOfPage = visible + scrollY + 20 >= pageHeight
-    return bottomOfPage || pageHeight < visible
-}
 
 ///////////*Build Filter Menu*////////////////////
 
@@ -114,7 +87,6 @@ function buildMovieMenu(movie) {
         let lis = document.createElement("li");
         let anc = document.createElement("a");
         let catego = ite.id;
-
 
         if (ite.count !== 0 && ite.parent === 41) {
             anc.textContent = ite.name;

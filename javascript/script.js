@@ -27,12 +27,21 @@ function fetchEvents() {
             musicPages = e.headers.get("X-WP-TotalPages")
             return e.json()
             console.log(musicPages)
-
         })
         .then(showMusicEvents);
 }
 
+/*Event Listener for adding more posts on click.*/
 
+footerButton.addEventListener("click", function () {
+    page++;
+    if (page <= musicPages) {
+        fetchEvents();
+    } else {
+        footerButton.classList.add("hidden");
+    }
+    console.log(page, musicPages)
+})
 
 
 function showMusicEvents(data) {
@@ -40,18 +49,6 @@ function showMusicEvents(data) {
     data.forEach(showSingleEvent);
     if (page < musicPages) {
         footerButton.classList.remove("hidden");
-
-        footerButton.addEventListener("click", function () {
-            page++;
-            if (page <= musicPages) {
-                fetchEvents();
-            } else {
-                footerButton.classList.add("hidden");
-            }
-
-        })
-
-        console.log(page, musicPages)
     }
 }
 
@@ -78,30 +75,9 @@ function showSingleEvent(event) {
 }
 
 fetchEvents();
-/*
-setInterval(function () {
-    if (bottomVisible() && lookingForData === false) {
-        console.log("We've reached rock bottom, fetching articles")
-        page++;
-        fetchEvents();
-    }
-}, 1000)*/
 
 
-
-/*
-function bottomVisible() {
-    const scrollY = window.scrollY
-    const visible = document.documentElement.clientHeight
-    const pageHeight = document.documentElement.scrollHeight
-    const bottomOfPage = visible + scrollY + 20 >= pageHeight
-    console.log(bottomOfPage)
-    return bottomOfPage || pageHeight < visible
-
-
-}*/
-
-
+/*Builds Menu for filtering by genres.*/
 
 
 fetch("http://soperfect.dk/kea/07-cms/wp00/wp-json/wp/v2/categories?_embed&per_page=50")
